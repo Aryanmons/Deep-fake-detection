@@ -130,7 +130,7 @@ const Login = () => {
           </button>
         </form>
 
-        <p className="mt-4 text-gray-400 text-sm">
+        <p className="mt-4 text-gray-400 text-sm mb-4">
           {isSignUp ? (
             <>Already have an account? <button onClick={() => setIsSignUp(false)} className="text-blue-400 font-semibold hover:underline">Login</button></>
           ) : (
