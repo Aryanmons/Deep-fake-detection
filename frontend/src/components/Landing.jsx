@@ -8,7 +8,7 @@ const Landing = ({ uploadSectionRef }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-10">
+    <div className="min-h-screen flex items-center justify-center px-10 bg-black text-white">
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center w-full max-w-6xl">
         {/* Left Content */}
@@ -23,13 +23,13 @@ const Landing = ({ uploadSectionRef }) => {
           {/* CTA Buttons */}
           <div className="flex space-x-4 justify-center md:justify-start">
             <button
-              className="px-6 py-3 rounded-xl shadow-md transition font-medium"
+              className="px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 shadow-md transition font-medium"
               onClick={scrollToUpload}
             >
               Get Started
             </button>
             <NavLink to="/contact">
-              <button className="px-6 py-3 rounded-xl shadow-md transition font-medium">
+              <button className="px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 shadow-md transition font-medium">
                 Contact Us
               </button>
             </NavLink>
