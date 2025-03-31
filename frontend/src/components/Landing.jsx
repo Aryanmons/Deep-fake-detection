@@ -8,38 +8,41 @@ const Landing = ({ uploadSectionRef }) => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="min-h-screen flex items-center justify-center px-10">
       {/* Hero Section */}
-      <div className="flex items-center justify-between p-10 min-h-screen">
+      <div className="flex flex-col md:flex-row items-center w-full max-w-6xl">
         {/* Left Content */}
-        <div className="max-w-xl">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
-          Deepfake Video Detection
+        <div className="md:w-1/2 text-center md:text-left">
+          <h1 className="text-5xl font-extrabold mb-6 leading-tight">
+            Deepfake Video Detection
           </h1>
-          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-          Detect manipulated videos with cutting-edge AI technology. Ensure authenticity and stay ahead of misinformation with our advanced deepfake detection tool.
+          <p className="text-lg mb-6 leading-relaxed tracking-wide">
+            Detect manipulated videos with cutting-edge AI technology. Ensure authenticity and stay ahead of misinformation with our advanced deepfake detection tool.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 justify-center md:justify-start">
             <button
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition font-medium"
-              onClick={scrollToUpload} // Scroll to Video Upload Section
+              className="px-6 py-3 rounded-xl shadow-md transition font-medium"
+              onClick={scrollToUpload}
             >
               Get Started
             </button>
             <NavLink to="/contact">
-            <button className="bg-gray-800 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-900 transition font-medium">
-              Contact Us
-            </button>
+              <button className="px-6 py-3 rounded-xl shadow-md transition font-medium">
+                Contact Us
+              </button>
             </NavLink>
-            
           </div>
         </div>
 
         {/* Right Image */}
-        <div className="w-1/2 flex justify-end">
-          <img src={deepFake} alt="DeepFake Detection" className="w-full max-w-md rounded-lg shadow-lg" />
+        <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
+          <img
+            src={deepFake}
+            alt="DeepFake Detection"
+            className="w-full max-w-sm md:max-w-md rounded-xl shadow-xl"
+          />
         </div>
       </div>
     </div>

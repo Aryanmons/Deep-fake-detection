@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Set entire site's background to black and text color to white */
+body {
+    @apply bg-black text-white;
+}
