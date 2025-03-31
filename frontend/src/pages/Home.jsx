@@ -8,7 +8,7 @@ const Home = () => {
   const uploadSectionRef = useRef(null); // Reference for the upload section
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black text-white">
       {/* Landing Section */}
       <Landing uploadSectionRef={uploadSectionRef} />
 
@@ -22,26 +22,29 @@ const Home = () => {
           </p>
 
           {/* File Upload Section */}
-          <div className="w-full p-6 border-dashed border-2 rounded-xl text-center cursor-pointer hover:bg-opacity-75 transition">
+          <div className="w-full p-6 bg-gray-700 border-dashed border-2 border-gray-500 rounded-xl text-center cursor-pointer hover:bg-gray-600 transition">
             <p className="font-medium">Drag & Drop your video here</p>
             <p className="text-sm">or</p>
             <input
               type="file"
               accept="video/*"
-              className="mt-2 px-4 py-2 border rounded-lg cursor-pointer"
+              className="mt-2 px-4 py-2 border rounded-lg cursor-pointer bg-gray-800 text-white"
               onChange={(e) => setFile(e.target.files[0])}
             />
             {file && <p className="text-sm mt-2 font-semibold">Selected: {file.name}</p>}
           </div>
 
           {/* Analyze Button */}
-          <button className="mt-6 px-6 py-3 rounded-lg font-medium shadow-md transition">
+          <button className="mt-6 px-6 py-3 bg-gray-800 rounded-lg font-medium text-white shadow-md hover:bg-gray-700 transition">
             Analyze Video
           </button>
         </div>
       </div>
 
+      {/* How It Works */}
       <HowItWorks />
+      
+      {/* Footer */}
       <AboveFooter />
     </div>
   );
