@@ -3,7 +3,7 @@ import a3 from "../assets/a3.jpg";
 const About = () => {
     
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 bg-black min-h-screen text-white">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full text-center">
         <img
           src={a3}
