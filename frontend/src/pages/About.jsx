@@ -4,7 +4,7 @@ import a3 from "../assets/a3.jpg";
 const About = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-20 bg-black text-white">
-      <div className="bg-gray-700 p-8 rounded-lg shadow-lg max-w-4xl w-full text-center">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-4xl w-full text-center">
         {/* Image */}
         <img
           src={a3}

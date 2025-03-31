@@ -20,7 +20,7 @@ const Contact = () => {
         <div className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-black text-white">
             
             {/* Contact Form Section */}
-            <div className="bg-gray-700 p-8 rounded-lg shadow-lg w-full max-w-lg text-center mb-12">
+            <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-lg text-center mb-12">
                 <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
                 <p className="text-gray-300 mb-6">
                     Have any questions or feedback? Fill out the form below, and we’ll get back to you soon!
@@ -46,7 +46,7 @@ const Contact = () => {
                     ></textarea>
                     <button 
                         type="submit" 
-                        className="w-full bg-gray-900 text-white p-3 rounded-lg shadow-md hover:bg-gray-800 transition"
+                        className="w-full bg-gray-700 text-white p-3 rounded-lg shadow-md hover:bg-gray-800 transition"
                     >
                         Send Message
                     </button>
@@ -59,7 +59,7 @@ const Contact = () => {
                 {teamMembers.map((member, index) => (
                     <div 
                         key={index} 
-                        className="bg-gray-700 p-6 rounded-lg shadow-lg flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 border border-gray-600"
+                        className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 border border-gray-600"
                     >
                         <img 
                             src={member.image} 

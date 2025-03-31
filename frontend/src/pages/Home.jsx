@@ -13,8 +13,8 @@ const Home = () => {
       <Landing uploadSectionRef={uploadSectionRef} />
 
       {/* Video Upload Section */}
-      <div ref={uploadSectionRef} className="flex flex-col items-center justify-center min-h-screen p-6">
-        <div className="p-8 rounded-lg shadow-lg max-w-2xl w-full text-center border">
+      <div ref={uploadSectionRef} className="flex flex-col items-center justify-center min-h-screen p-6 ">
+        <div className="p-8 rounded-lg shadow-lg max-w-2xl w-full text-center bg-gray-900">
           <h1 className="text-4xl font-bold mb-4">VidShield Video Detector</h1>
           <p className="text-lg leading-relaxed mb-6">
             Upload a video to check if it's AI-generated or real. Our advanced AI model will analyze the content
