@@ -2,6 +2,8 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+
 
 const Login = () => {
   const { setShowLogin, isSignUp, setIsSignUp, backendurl, setToken, setUser } = useContext(AppContext);
@@ -135,6 +137,32 @@ const Login = () => {
             <>Don't have an account? <button onClick={() => setIsSignUp(true)} className="text-blue-400 font-semibold hover:underline">Sign up</button></>
           )}
         </p>
+        <GoogleOAuthProvider clientId="48282350202-mk9ac2iji8oh68kcri82iqb18p4q44po.apps.googleusercontent.com">
+          <GoogleLogin
+            onSuccess={async (credentialResponse) => {
+              try {
+                const { data } = await axios.post(`${backendurl}/api/v1/user/google-login`, {
+                  token: credentialResponse.credential,
+                });
+
+                if (data.success) {
+                  setToken(data.token);
+                  setUser(data.user);
+                  localStorage.setItem("token", data.token);
+                  setShowLogin(false);
+                } else {
+                  toast.error(data.message);
+                }
+              } catch (error) {
+                toast.error("Google login failed");
+              }
+            }}
+            onError={() => {
+              toast.error("Google login failed");
+            }}
+          />
+        </GoogleOAuthProvider>
+
 
         <button
           onClick={() => setShowLogin(false)}
