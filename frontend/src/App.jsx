@@ -13,7 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const { showLogin } = useContext(AppContext);
 
-
   return (
     <div className='min-h-screen bg-gradient-to-b from-black to-gray-1500 text-white'>
       <Navbar />

@@ -40,7 +40,7 @@ export const Navbar = () => {
                     <NavLink to="/" className="flex items-center">
                         <p className="font-extrabold text-3xl text-white flex items-center tracking-wide">
                             Vid<span className="text-gray-400">Shield</span>
-                            <span className="text-red-600 text-4xl font-extrabold">.</span>
+                            <span className="text-red-600 text-3xl font-extrabold">.</span>
                         </p>
                     </NavLink>
                 </div>

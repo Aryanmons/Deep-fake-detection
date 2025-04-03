@@ -9,9 +9,8 @@ export const AppProvider = ({ children }) => {
     const [showLogin, setShowLogin] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false);
     const [token, setToken] = useState(localStorage.getItem('token'));
-
     const backendurl = process.env.backend_url || "http://localhost:4000";
-
+    const modelUrl = process.env.model_url || "http://127.0.0.1:8000/predict/"
     // Load user data from localStorage when app initializes
     useEffect(() => {
         const savedUser = localStorage.getItem('user');
@@ -36,7 +35,7 @@ export const AppProvider = ({ children }) => {
     }, [user]);
 
     return (
-        <AppContext.Provider value={{ user, setUser, showLogin, setShowLogin, isSignUp, setIsSignUp, backendurl, token, setToken, logout }}>
+        <AppContext.Provider value={{ user, setUser, showLogin, setShowLogin, isSignUp, setIsSignUp, backendurl, token, setToken, logout ,modelUrl}}>
             {children}
         </AppContext.Provider>
     );
