@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import member1 from "../assets/member1.jpg";
 import member2 from "../assets/member2.jpg";
 import member3 from "../assets/member3.jpg";
@@ -16,6 +16,9 @@ const teamMembers = [
 ];
 
 const Contact = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top when the component is mounted
+      }, []);
     return (
         <div className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-black text-white">
             

@@ -4,6 +4,7 @@ import timm
 import numpy as np
 import tempfile
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware  # Import CORSMiddleware
 from torchvision import transforms
 import torch.nn as nn
 from io import BytesIO
@@ -12,6 +13,17 @@ from io import BytesIO
 # 📌 Initialize FastAPI
 # =======================
 app = FastAPI()
+
+# =======================
+# 📌 CORS Configuration
+# =======================
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (you can specify specific origins if needed)
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 # =======================
 # 📌 Define Constants

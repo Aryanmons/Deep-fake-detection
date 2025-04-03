@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const AboveFooter = () => {
   return (
@@ -14,10 +15,18 @@ const AboveFooter = () => {
         {/* Navigation Links */}
         <div>
           <ul className="space-y-2">
-            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">Detect</li>
-            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">Pricing</li>
-            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">About Us</li>
-            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">Contact</li>
+            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">
+              <Link to="/">Detect</Link>
+            </li>
+            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">
+              <Link to="/pricing">Pricing</Link>
+            </li>
+            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">
+              <Link to="/about">About Us</Link> {/* Link to About page */}
+            </li>
+            <li className="cursor-pointer hover:text-gray-300 transition-colors duration-300">
+              <Link to="/contact">Contact</Link> {/* Link to Contact page */}
+            </li>
           </ul>
         </div>
 
