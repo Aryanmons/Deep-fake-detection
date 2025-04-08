@@ -4,9 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
-
 const Login = () => {
-  const { setShowLogin, isSignUp, setIsSignUp, backendurl, setToken, setUser } = useContext(AppContext);
+  const { setShowLogin, isSignUp, setIsSignUp, backendurl, setToken, setUser, setloggedIn } = useContext(AppContext);
   const modalRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -15,24 +14,25 @@ const Login = () => {
     confirmPassword: "",
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Function to submit form data
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
     try {
       if (!isSignUp) {
         const { data } = await axios.post(`${backendurl}/api/v1/user/login`, {
           email: formData.email,
           password: formData.password,
         });
+
         if (data.success) {
           setToken(data.token);
           setUser(data.user);
+          setloggedIn(true); // ✅ Ensure loggedIn is set
           localStorage.setItem("token", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Store user
           setShowLogin(false);
         } else {
           toast.error(data.message);
@@ -42,7 +42,9 @@ const Login = () => {
         if (data.success) {
           setToken(data.token);
           setUser(data.user);
+          setloggedIn(true); // ✅ Ensure loggedIn is set
           localStorage.setItem("token", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Store user
           setShowLogin(false);
         } else {
           toast.error(data.message);
@@ -53,7 +55,6 @@ const Login = () => {
     }
   };
 
-  // Function to close the modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -74,7 +75,6 @@ const Login = () => {
           {isSignUp ? "Create an account to get started" : "Welcome back! Please sign in to continue"}
         </p>
 
-        {/* Form starts here */}
         <form onSubmit={handleSubmit}>
           {isSignUp && (
             <input
@@ -137,6 +137,8 @@ const Login = () => {
             <>Don't have an account? <button onClick={() => setIsSignUp(true)} className="text-blue-400 font-semibold hover:underline">Sign up</button></>
           )}
         </p>
+
+        {/* Google Login */}
         <GoogleOAuthProvider clientId="48282350202-mk9ac2iji8oh68kcri82iqb18p4q44po.apps.googleusercontent.com">
           <GoogleLogin
             onSuccess={async (credentialResponse) => {
@@ -148,7 +150,9 @@ const Login = () => {
                 if (data.success) {
                   setToken(data.token);
                   setUser(data.user);
+                  setloggedIn(true); // ✅ Now correctly set
                   localStorage.setItem("token", data.token);
+                  localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Optional
                   setShowLogin(false);
                 } else {
                   toast.error(data.message);
@@ -162,7 +166,6 @@ const Login = () => {
             }}
           />
         </GoogleOAuthProvider>
-
 
         <button
           onClick={() => setShowLogin(false)}
