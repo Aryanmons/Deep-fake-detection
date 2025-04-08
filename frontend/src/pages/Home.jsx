@@ -5,7 +5,7 @@ import AboveFooter from "../components/AboveFooter";
 import HowItWorks from "../components/HowItWorks";
 
 const Home = () => {
-  const { modelUrl,isSignUp,setShowLogin} = useContext(AppContext); // Get API URL from context
+  const { modelUrl,isSignUp,setIsSignUp,setShowLogin} = useContext(AppContext); // Get API URL from context
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
@@ -14,10 +14,7 @@ const Home = () => {
 
   // Handler to click the analyze button
   const onClickHandler = async () => {
-    if(!isSignUp){
-      setShowLogin(true);
-      return;
-    }
+    
     if (!file) {
       setError("Please select a video file first.");
       return;
